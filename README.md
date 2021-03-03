@@ -1,4 +1,4 @@
-![ProjectLogo](ProjectLogo.PNG)
+![ProjectLogo](ProjectLogo.png)
 
 # 📁 About the project
 
