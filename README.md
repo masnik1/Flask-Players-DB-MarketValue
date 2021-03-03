@@ -1,6 +1,5 @@
-![ProjectLogo](ProjectLogo.png)
 <p align="center">
-  <img width="460" height="300" src="https://raw.githubusercontent.com/masnik1/Flask-Players-MarketValue-Web-Scrapper/main/ProjectLogo.png">
+  <img src="https://raw.githubusercontent.com/masnik1/Flask-Players-MarketValue-Web-Scrapper/main/ProjectLogo.png">
 </p>
 
 # 📁 About the project
