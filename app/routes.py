@@ -5,10 +5,9 @@ from flask import Flask
 import requests
 from bs4 import BeautifulSoup
 
-VAR_NAME = 'gabigol'
-
 def buscar_jogador(NAME_PLAYER, TEAM_PLAYER):
-    url = f'https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=+{VAR_NAME}&x=0&y=0'
+
+    url = f'https://www.transfermarkt.com/schnellsuche/ergebnis/schnellsuche?query=+{NAME_PLAYER}&x=0&y=0'
 
     html =  requests.get(
         url, headers={"User-Agent": "Custom"}
@@ -24,11 +23,13 @@ def buscar_jogador(NAME_PLAYER, TEAM_PLAYER):
             print(td.find(text=True))
             lista_infos.append(td.find(text=True))
 
-    name = lista_infos[0]
-    age = lista_infos[6]
-    club = lista_infos[3]
-    position = lista_infos[4]
-    market_value = lista_infos[8]
+    lista_infos = [i for i in lista_infos if i is not None]
+    index_club = [idx for idx, s in enumerate(lista_infos) if TEAM_PLAYER in s][0]
+    name = lista_infos[index_club - 2]
+    age = lista_infos[index_club + 2]
+    club = lista_infos[index_club]
+    position = lista_infos[index_club + 1]
+    market_value = lista_infos[index_club + 3]
 
 
 

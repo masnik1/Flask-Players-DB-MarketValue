@@ -1,11 +1,7 @@
-import os
-
-import mysql.connector
-import numpy as np
 import pandas as pd
 import sqlalchemy
 
-PASSWORD_DB = ''
+PASSWORD_DB = 'Astralisgg'
 HOST_DB = 'localhost'
 PORT_DB = '3306'
 TABLENAME_PLAYERS = 'players_tmk_database'
@@ -19,7 +15,8 @@ def load_player(player_name, team_name):
     engine = sqlalchemy.create_engine(f'mysql+pymysql://root:{PASSWORD_DB}@{HOST_DB}:{PORT_DB}/{TABLENAME_PLAYERS}')
     dbConnection = engine.connect()
 
-    Y = pd.read_sql(f"select * from players_tmk_database.players WHERE Nome = '{player_name}' ", dbConnection)
+    Y = pd.read_sql(f"select * from players_tmk_database.players WHERE Nome = '{player_name.title()}'", dbConnection)
+    Y = Y[Y['Clube'].str.contains(team_name.title())]
 
     pd.set_option('display.expand_frame_repr', False)
 
