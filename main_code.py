@@ -29,10 +29,10 @@ def busca():
             dataframe = load_player(NAME_PLAYER, TEAM_PLAYER)
         except:
             pass
-        if dataframe.empty:
-            string_return = 'Informações não encontradas'
-        else:
-            string_return = dataframe.Nome[0] + ', jogador do: ' + dataframe.Clube[0] + ' possui: ' + dataframe.Idade[0] + ' anos' + ', joga de: ' + dataframe.Posição[0] + ' e seu valor de mercado é: ' + dataframe.ValorMercado[0]
+    if dataframe.empty:
+        string_return = 'Informações não encontradas'
+    else:
+        string_return = dataframe.Nome[0] + ', jogador do: ' + dataframe.Clube[0] + ' possui: ' + dataframe.Idade[0] + ' anos' + ', joga de: ' + dataframe.Posição[0] + ' e seu valor de mercado é: ' + dataframe.ValorMercado[0]
 
     return render_template('index.html', value=string_return)
     
