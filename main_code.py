@@ -1,6 +1,4 @@
 from flask import Flask, render_template, request
-import requests
-from bs4 import BeautifulSoup
 from app import buscar_jogador
 import pandas as pd
 from sql_data import insert_players_values, load_player
