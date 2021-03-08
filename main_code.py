@@ -4,12 +4,6 @@ import pandas as pd
 from sql_data import insert_players_values, load_player
 app = Flask(__name__, template_folder='templates')
 
-@app.route('/', methods=['POST'])
-def my_form_post():
-    text = request.form['text']
-    processed_text = text.upper()
-    return processed_text
-
 @app.route("/")
 def home():
 
