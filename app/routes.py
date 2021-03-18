@@ -20,11 +20,10 @@ def buscar_jogador(NAME_PLAYER, TEAM_PLAYER):
     for tr in rows:
         cols = tr.findAll('td')
         for td in cols:
-            print(td.find(text=True))
             lista_infos.append(td.find(text=True))
 
     lista_infos = [i for i in lista_infos if i is not None]
-    index_club = [idx for idx, s in enumerate(lista_infos) if TEAM_PLAYER in s][0]
+    index_club = [idx for idx, s in enumerate(lista_infos) if TEAM_PLAYER.title() in s][0]
     name = lista_infos[index_club - 2]
     age = lista_infos[index_club + 2]
     club = lista_infos[index_club]
